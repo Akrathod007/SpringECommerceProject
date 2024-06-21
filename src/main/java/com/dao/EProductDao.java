@@ -17,13 +17,13 @@ public class EProductDao {
 	
 	public void addProduct(EProductBean productBean) {
 		
-		stmt.update("insert into products(productName,Category,qty,price) values (?,?,?,?)",productBean.getProductName(),
+		stmt.update("insert into productlist(productName,Category,qty,price) values (?,?,?,?)",productBean.getProductName(),
 				productBean.getCategory(),productBean.getQty(),productBean.getPrice()
 			);
 	}
 	
 	public List<EProductBean> getAllProducts() {
-		List<EProductBean> list = stmt.query("select * from products", new BeanPropertyRowMapper<>(EProductBean.class));
+		List<EProductBean> list = stmt.query("select * from productlist", new BeanPropertyRowMapper<>(EProductBean.class));
 		return list;
 	}
 }
