@@ -9,11 +9,12 @@
 <body>
 	<h1>Product Deatails</h1>
 	
-	<form action="saveproduct" method="post">
+	<form action="saveproduct" method="post" enctype="multipart/form-data">
 		Product Name:<input type="text" name="productName"/> <br><br>
-		Category : <input type="text" name="Category"/> <br><br>
+		Category : <input type="text" name="category"/> <br><br>
 		qty : <input type="text" name="qty"/> <br><br>
-		price <input type="text" name="price"/> <br><br>
+		price : <input type="text" name="price"/> <br><br>
+		MasterImage :<input type="file" name="masterImage"/><br><br>
 		
 		<input type="submit" value="Add Product"/>
 	</form>

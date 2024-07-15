@@ -5,9 +5,17 @@ public class EProductBean {
 
 	private Integer productId;
 	private String productName;
-	private String Category;
+	private String category;
 	private Integer qty;
 	private Float price;
+	
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public Integer getProductId() {
 		return productId;
 	}
@@ -20,12 +28,7 @@ public class EProductBean {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getCategory() {
-		return Category;
-	}
-	public void setCategory(String Category) {
-		this.Category = Category;
-	}
+	
 	public Integer getQty() {
 		return qty;
 	}

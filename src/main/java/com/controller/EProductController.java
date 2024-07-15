@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.EProductBean;
 import com.dao.EProductDao;
@@ -25,8 +26,9 @@ public class EProductController {
 	}
 	
 	@PostMapping("saveproduct")
-	public String saveProduct(EProductBean productBean) {
+	public String saveProduct(EProductBean productBean,@RequestParam("masterImage") MultipartFile masterImage) {
 	
+		System.out.println(masterImage.getOriginalFilename());
 		productDao.addProduct(productBean);
 		return "redirect:/productlist";
 	}
@@ -42,6 +44,27 @@ public class EProductController {
 	@GetMapping("/deleteproduct")
 	public String deleteProduct(@RequestParam("productId") Integer productId) {
 		System.out.println("deleteProduct() =>"+productId);
+		productDao.deleteProduct(productId);
 		return "redirect:/productlist";
+	}
+	
+	@GetMapping("/searchproductbyname")
+	public String searchProductByName() {
+		return "DeleteProductByName";
+	}
+	
+	@PostMapping("/deleteproductbyname")
+	public String deleteProductByName(@RequestParam("productName") String productName) {
+		productDao.deleteProductByName(productName);
+		return "redirect:/productlist";
+	}
+	
+	@GetMapping("/viewproduct")
+	public String viewProduct(@RequestParam("productId") Integer productId,Model model) {
+		
+		EProductBean productBean = productDao.getProductDetails(productId);
+		System.out.println(productBean);
+		model.addAttribute("product",productBean);
+		return "ViewProduct";
 	}
 }

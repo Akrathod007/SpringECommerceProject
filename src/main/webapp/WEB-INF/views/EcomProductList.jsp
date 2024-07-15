@@ -20,6 +20,7 @@
 		<tr>
 			<th>Product Id</th>
 			<th>Product Name</th>
+			<th>Category</th>
 			<th>Qty</th>
 			<th>Price</th>
 			<th>Action</th>
@@ -28,8 +29,8 @@
 		<%
 			for(EProductBean p : products){
 				out.print("<tr>");
-				out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td><td>"
-							+ p.getQty() + "</td><td>" + p.getPrice() + "</td><td><a href='deleteproduct?productId="+p.getProductId()+"'>Delete</a></td>"
+				out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td><td>" +p.getCategory() +"</td><td>"
+							+ p.getQty() + "</td><td>" + p.getPrice() + "</td><td><a href='deleteproduct?productId="+p.getProductId()+"'>Delete</a> | <a href='viewproduct?productId="+p.getProductId()+"'>View</a></td>"
 						);
 				out.print("<tr>");
 			}
