@@ -12,12 +12,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bean.EProductBean;
 import com.dao.EProductDao;
+import com.service.FileUploadService;
+
 
 @Controller
 public class EProductController {
 
 	@Autowired
 	EProductDao productDao;
+	
+	@Autowired
+	FileUploadService fileUploadService;
 	
 	@GetMapping("/eproductitem")
 	public String eProductItem() {
@@ -29,6 +34,7 @@ public class EProductController {
 	public String saveProduct(EProductBean productBean,@RequestParam("masterImage") MultipartFile masterImage) {
 	
 		System.out.println(masterImage.getOriginalFilename());
+		fileUploadService.uploadProductImage(masterImage);
 		productDao.addProduct(productBean);
 		return "redirect:/productlist";
 	}

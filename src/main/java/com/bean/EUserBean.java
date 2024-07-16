@@ -1,11 +1,15 @@
 package com.bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class EUserBean {
 
 	private Integer userId;
 	private String firstname;
 	private String email;
 	private String password;
+	private MultipartFile profilePic;
+	private String profilePicPath;
 	public Integer getUserId() {
 		return userId;
 	}
@@ -30,6 +34,19 @@ public class EUserBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public MultipartFile getProfilePic() {
+		return profilePic;
+	}
+	public void setProfilePic(MultipartFile profilePic) {
+		this.profilePic = profilePic;
+	}
+	public String getProfilePicPath() {
+		return profilePicPath;
+	}
+	public void setProfilePicPath(String profilePicPath) {
+		this.profilePicPath = profilePicPath;
+	}
+	
 	
 	
 	

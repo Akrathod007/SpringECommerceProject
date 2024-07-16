@@ -1,6 +1,7 @@
 package com.bean;
 
 
+
 public class EProductBean {
 
 	private Integer productId;
@@ -8,7 +9,7 @@ public class EProductBean {
 	private String category;
 	private Integer qty;
 	private Float price;
-	
+	private String productImagePath;
 	
 	public String getCategory() {
 		return category;
@@ -41,6 +42,20 @@ public class EProductBean {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
+	public String getProductImagePath() {
+		return productImagePath;
+	}
+	public void setProductImagePath(String productImagePath) {
+		this.productImagePath = productImagePath;
+	}
 	
 	
 }
+
+
+
+
+
+
+
+

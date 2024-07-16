@@ -7,7 +7,7 @@
 <title>Signup | ECommerce Project</title>
 </head>
 <body>
-	<form action="ecomsignup" method="post">
+	<form action="ecomsignup" method="post" enctype="multipart/form-data">
 		<h1>Signup Here</h1>
 		
 		<label>First Name:</label>
@@ -22,6 +22,8 @@
 		<input type="password" name="password"/>
 		<br><br>
 		
+		<label>Profile</label>
+		<input type="file" name="profilePic"/><br><br>
 		<input type="submit" value="Signup"/>
 	</form>
 </body>

@@ -37,7 +37,7 @@ public class EProductDao {
 	
 	public EProductBean getProductDetails(Integer productId) {
 		EProductBean bean = stmt.queryForObject("select * from productlist where productId = ?", 
-				new BeanPropertyRowMapper<>(EProductBean.class), productId );
+				new BeanPropertyRowMapper<>(EProductBean.class),new Object[] {productId} );
 		return bean;
 	}
 }
