@@ -159,6 +159,9 @@ a:hover {
 </style>
 </head>
 <body>
+
+	<a href="logout">Logout</a> |
+	<a href="mycart">My Cart</a>
 	<%
 		List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");
 	%>
@@ -188,7 +191,7 @@ a:hover {
 												<ul>
 														<li><a href="addtocart?productId=<%=p.getProductId()%>"><i class="fas fa-shopping-cart"></i></a></li>
 														<li><a href="#"><i class="fas fa-heart"></i></a></li>
-														<li><a href="#"><i class="fas fa-eye"></i></a></li>
+														<li><a href="viewproduct?productId=<%=p.getProductId()%>"><i class="fas fa-eye"></i></a></li>
 												</ul>
 										</div>
 										<div class="part-2">
