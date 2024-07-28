@@ -9,7 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.bean.ECartBean;
-import com.bean.EProductBean;
+//import com.bean.EProductBean;
+import com.bean.ProductCartBean;
 
 @Repository
 public class CartDao {
@@ -37,9 +38,9 @@ public class CartDao {
 		}
 	}
 	
-	public List<EProductBean> myCart(Integer userId){
-	List<EProductBean> products = 	stmt.query("select * from productlist join cart using (productId) where userId = ?",
-				new BeanPropertyRowMapper<>(EProductBean.class),new Object[] {userId});
+	public List<ProductCartBean> myCart(Integer userId){
+	List<ProductCartBean> products = 	stmt.query("select c.*,p.price,p.productName, p.Category,p.productImagePath from productlist p join cart c using (productId) where userId = ?",
+				new BeanPropertyRowMapper<>(ProductCartBean.class),new Object[] {userId});
 	
 	return products;
 	}

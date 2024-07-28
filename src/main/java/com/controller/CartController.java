@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.ECartBean;
-import com.bean.EProductBean;
+//import com.bean.EProductBean;
 import com.bean.EUserBean;
+import com.bean.ProductCartBean;
 import com.dao.CartDao;
 
 import jakarta.servlet.http.HttpSession;
@@ -42,7 +43,8 @@ public class CartController {
 		EUserBean userBean  = (EUserBean) session.getAttribute("user");
 		Integer userId = userBean.getUserId();
 		
-		List<EProductBean> products = cartDao.myCart(userId);
+		List<ProductCartBean> products = cartDao.myCart(userId);
+
 		model.addAttribute("products",products);
 		return "MyCart";
 	}

@@ -1,3 +1,4 @@
+<%@page import="com.bean.ProductCartBean"%>
 <%@page import="com.bean.EProductBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -29,8 +30,8 @@
 		display:flex;
 		border:1px solid black;
 		gap:5px;
-		width:500px;
-		height:300px;
+		width:600px;
+		height:450px;
 		gap:20px
 		
 	}
@@ -78,20 +79,24 @@
     <h1>Product List</h1>
     
     <a href="ehome">Home</a><br><br>
+    <a href="userproducts">Products</a>
     <%
-        List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");
+        List<ProductCartBean> products = (List<ProductCartBean>) request.getAttribute("products");
         Float total = 0.0f;
     %>
     
     <div id="cartbox">
         <% 
         if (products != null) {
-            for(EProductBean p : products) {
+            for(ProductCartBean p : products) {
             	out.println("<div id='cart'>");
-                out.println("<img src='" + p.getProductImagePath() + "' width='200px'/>");
+                out.println("<img src='" + p.getProductImagePath() + "' width='300px'/>");
                 // You can calculate the total price here if needed
-                 total += p.getPrice(); 
+                 total = total + (p.getPrice()*p.getQty()); 
                 	out.println("<div id='details'>");
+              
+                	out.println("<h1> CartId:"+p.getCartId()+"</h1>");
+                	out.println("<h1> ProductId:"+p.getProductId()+"</h1>");
         			out.println("<h1> Product Name:"+p.getProductName()+"</h1>");
         			out.println("<h1> Category:"+p.getCategory()+"</h1>");
         			out.println("<h1> Qty:"+p.getQty()+"</h1>");
